@@ -3,13 +3,21 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { AuroraBackground } from "../ui/aurora-background";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+import Switch from "react-switch";
 
 export function AuroraBackgroundDemo() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isOff, setIsOff] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   const handleClick = () => {
     setIsDarkMode((prevMode) => !prevMode);
+    setIsOff(!isOff);
+    setChecked(!checked);
   };
+
   return (
     <AuroraBackground className={isDarkMode ? "dark" : ""}>
       <motion.div
@@ -28,12 +36,27 @@ export function AuroraBackgroundDemo() {
         <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
           And this, is chemical burn.
         </div>
-        <button
+        {/* <button
           onClick={handleClick}
           className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2"
         >
           {isDarkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+        </button> */}
+        {/* <button onClick={() => setIsOff(!isOff)}>{isOff ? "ON" : "OFF"}</button> */}
+        {/* <button onClick={handleClick}>
+          {isOff ? <MdDarkMode /> : <CiDark />}
+        </button> */}
+        <Switch
+          onChange={handleClick}
+          checked={checked}
+          onColor="black"
+          checkedIcon={
+            <MdDarkMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
+          }
+          uncheckedIcon={
+            <MdLightMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
+          }
+        />
       </motion.div>
     </AuroraBackground>
   );
