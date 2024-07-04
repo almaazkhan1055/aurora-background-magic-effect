@@ -41,10 +41,10 @@ export function AuroraBackgroundDemo() {
           checked={checked}
           onColor="black"
           checkedIcon={
-            <MdDarkMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
+            <MdLightMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
           }
           uncheckedIcon={
-            <MdLightMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
+            <MdDarkMode className="h-6 w-6 translate-x-0.5 translate-y-0.5 text-center text-yellow-100" />
           }
         />
       </motion.div>
